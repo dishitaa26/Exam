@@ -1,0 +1,109 @@
+1.Push to branch -
+
+git init
+git add .
+git commit -m "first commit"
+git branch feature1
+git checkout feature1
+git push -u origin feature1
+
+----------------------------------
+2.Push to github - 
+Sending our local project/files from computer to GitHub repository.
+
+cd Onedrive/Desktop/pushing
+dir
+git init
+git add .
+git commit -m "first commit"
+git remote add origin <git url>
+git branch -M main
+git push -u origin main --force
+
+----------------------------------
+3.Cloning -
+Copying a GitHub repository from internet to our computer.
+
+git clone <git url>
+
+------------------------------------
+4.Forking -
+Creating our own copy of someone else’s GitHub repository.
+
+Original Repo → Fork → Our GitHub Account
+--------------------------------------
+
+5.Pull request -
+Request to merge our branch/code into another branch.
+
+1- Fork the Repository
+
+2- Clone the Forked Repo 
+
+git clone https://github.com/your-username/repo-name.git
+cd repo-name
+
+git remote add upstream <original repo owner link>
+git remote -v
+
+git checkout -b feature1
+
+code . --open vs code
+git status
+git add .
+git commit -m "Changed"
+git push origin feature1
+
+Note- To remove origin and add a new origin, follow this-
+git remote remove origin
+git remote add origin <path of forked repo--https://github.com/rkjune/jwt_auth_forked.git>
+
+
+Open your forked repo in your github account
+
+
+Base repo: original repo
+Compare: your branch (feature-update)
+
+Create Pull Request
+
+------------------------------------------
+Merge Conflict
+mkdir merge-demo
+cd merge-demo
+git init
+
+Create Initial file and commit-
+echo Once upon a time, there was a coder. > story.txt
+git add story.txt
+git commit -m "Initial commit"
+
+Create branch A and change the original line
+git checkout -b feature-A
+echo Once upon a time, there was a coder. They loved working with Git. > story.txt
+git add story.txt
+git commit -m "Feature A change"
+
+Return to main
+git checkout master
+
+Create Branch B and change the same line differently
+git checkout -b feature-B
+echo Once upon a time, there was a coder. They enjoyed solving puzzles. > story.txt
+git add story.txt
+git commit -m "Feature B change"
+
+Merge to create conflict
+git checkout master
+git merge feature-A
+git merge feature-B
+
+Now open file and resolve conflict manually
+notepad story.txt
+
+Replace the   
+    entire text with any content of your choice.
+Save and the close the file manually
+Final Commit
+git add story.txt
+git commit -m "Resolved merge conflict"
